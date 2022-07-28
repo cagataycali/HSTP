@@ -8,33 +8,31 @@ abstract contract HSTP {
         string operation;
     }
     struct Request {
-        string path;
         string payload;
-        string headers;
-        string cookies;
     }
     struct Response {
         string status;
         string body;
-        string headers;
     }
     // Mapping for routes: {'/': 'query', '/', 'mutation'}
     mapping(string => string) public routes;
 
     // Main reply method for all requests,
-    function reply(Route memory route, string memory payload, string memory headers, string memory cookies)
-        public
-        virtual
-        returns (Response memory response);
+    function reply(
+        Route memory route,
+        Request memory request,
+        Response memory response
+    ) public virtual returns (Response memory);
 
     // Operation
-    function query(Request memory request)
+    function query(Request memory request, Response memory response)
         public
         virtual
-        returns (Response memory response);
+        returns (Response memory);
 
-    function mutation(Request memory request)
+    function mutation(Request memory request, Response memory response)
         public
         virtual
-        returns (Response memory response);
+        payable
+        returns (Response memory);
 }
