@@ -6,7 +6,6 @@ abstract contract HTSP {
     struct Route {
         string path;
         string operation;
-        string payload;
     }
     struct Request {
         string path;
@@ -23,7 +22,7 @@ abstract contract HTSP {
     mapping(string => string) public routes;
 
     // Main reply method for all requests,
-    function reply(Route memory route)
+    function reply(Route memory route, string memory payload, string memory headers, string memory cookies)
         public
         virtual
         returns (string memory);
