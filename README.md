@@ -17,25 +17,25 @@ Implements: HTTP methods, HTTP headers, HTTP body, HTTP status code, HTTP status
 
 ```solidity
 contract Service is HSTP {
-    function reply(Route memory route, string memory payload, string memory headers, string memory cookies)
+    function reply(Route memory route, Request memory request, Response memory response)
         public
         virtual
-        returns (Response memory response) {
-            // response.status = "200";
-            // response.body = payload;
-            // response.headers = headers;
-            // response.cookies = cookies;
-            // return response;
+        returns (Response memory) {
+            response.status = "200";
+            response.body = payload;
+            response.headers = headers;
+            response.cookies = cookies;
+            return response;
         }
     }
-    function query(Request memory request) public virtual returns (Response memory response) {
+    function query(Request memory request, Response memory response) public virtual returns (Response memory) {
         response.status = "200";
         response.body = "Hello World!";
         response.headers = "";
         response.cookies = "";
         return response;
     }
-    function mutation(Request memory request) public virtual returns (Response memory response) {
+    function mutation(Request memory request, Response memory response) public virtual returns (Response memory) {
         response.status = "200";
         response.body = "Hello World!";
         response.headers = "";
