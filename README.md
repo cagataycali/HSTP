@@ -9,7 +9,7 @@ Thus the contracts can call each other freely, they can check their system statu
 
 ### How to use the protocol
 
-The protocol itself is a smart contract proposal, you can set your Contract as HSTP contract.
+The protocol itself is a [smart contract proposal](./HSTP.sol), you can set your Contract as HSTP contract.
 
 
 HSTP is a abstract class.
