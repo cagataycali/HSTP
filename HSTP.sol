@@ -1,8 +1,8 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: GNU-3.0-or-later
 pragma solidity ^0.8.0;
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
-abstract contract HTSP {
+abstract contract HSTP {
     struct Route {
         string path;
         string operation;
