@@ -11,40 +11,44 @@ Thus the contracts can call each other freely, they can check their system statu
 
 The protocol itself is a [smart contract proposal](./HSTP.sol), you can set your Contract as HSTP contract.
 
-
 HSTP is a abstract class.
 
 Implements: HTTP methods, HTTP headers, HTTP body, HTTP status code, HTTP status message, HTTP version.
 
 ```solidity
-contract Todo is HSTP {
-    function head() {
-
-    }
-    function get(string calldata path, string[] calldata params) {
-        if (path === '/') {
-            return this.todos;
-        } else if (path.includes('/todo/')) {
-            return this.todos[path.split('/todo/')[1]];
-        } else {
-            return this.404();
+contract Service is HSTP {
+    function reply(Route memory route, string memory payload, string memory headers, string memory cookies)
+        public
+        virtual
+        returns (Response memory response) {
+            // response.status = "200";
+            // response.body = payload;
+            // response.headers = headers;
+            // response.cookies = cookies;
+            // return response;
         }
     }
-    function post() {
-
+    function query(Request memory request) public virtual returns (Response memory response) {
+        response.status = "200";
+        response.body = "Hello World!";
+        response.headers = "";
+        response.cookies = "";
+        return response;
     }
-    function put() {
-
-    }
-    # Implemented by default
-    function 404() {
-        return "404"
+    function mutation(Request memory request) public virtual returns (Response memory response) {
+        response.status = "200";
+        response.body = "Hello World!";
+        response.headers = "";
+        response.cookies = "";
+        return response;
     }
 }
 ```
 
 # License
+
 GNU GENERAL PUBLIC LICENSE V3
 
 # Author
+
 [Cagatay Cali](https://twitter.com/cagataycali)

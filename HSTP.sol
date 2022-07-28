@@ -25,7 +25,7 @@ abstract contract HTSP {
     function reply(Route memory route, string memory payload, string memory headers, string memory cookies)
         public
         virtual
-        returns (string memory);
+        returns (Response memory response);
 
     // Operation
     function query(Request memory request)
