@@ -1,28 +1,15 @@
 // SPDX-License-Identifier: GNU-3.0-or-later
 pragma solidity ^0.8.0;
 
+import "./Structs.sol";
+
 // Stateless Hyper Service Transfer Protocol for on-chain services.
 abstract contract HSTP {
-    struct Route {
-        string path;
-        string operation;
-    }
-    struct Request {
-        string payload;
-    }
-    struct Response {
-        string status;
-        string body;
-    }
-    // Mapping for routes: {'/': 'query', '/', 'mutation'}
-    mapping(string => string) public routes;
+    string public name;
 
-    // Main reply method for all requests,
-    function reply(
-        Route memory route,
-        Request memory request,
-        Response memory response
-    ) public virtual returns (Response memory);
+    constructor(string memory _name) {
+        name = _name;
+    }
 
     // Operation
     function query(Request memory request, Response memory response)
@@ -32,7 +19,7 @@ abstract contract HSTP {
 
     function mutation(Request memory request, Response memory response)
         public
-        virtual
         payable
+        virtual
         returns (Response memory);
 }

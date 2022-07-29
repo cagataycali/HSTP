@@ -16,34 +16,45 @@ HSTP is a abstract class.
 Implements: HTTP methods, HTTP headers, HTTP body, HTTP status code, HTTP status message, HTTP version.
 
 ```solidity
-contract Service is HSTP {
-    function reply(Route memory route, Request memory request, Response memory response)
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+// Stateless Hyper Service Transfer Protocol for on-chain services.
+import "./HSTP.sol";
+
+contract Node is HSTP("addTodo") {
+    function query(Request memory request, Response memory response)
         public
+        override
         virtual
         returns (Response memory) {
-            response.status = "200";
-            response.body = payload;
-            response.headers = headers;
-            response.cookies = cookies;
+            request.payload = "1";
+            response.status = "1";
+            response.body = "success";
             return response;
         }
-    }
-    function query(Request memory request, Response memory response) public virtual returns (Response memory) {
-        response.status = "200";
-        response.body = "Hello World!";
-        response.headers = "";
-        response.cookies = "";
-        return response;
-    }
-    function mutation(Request memory request, Response memory response) public virtual returns (Response memory) {
-        response.status = "200";
-        response.body = "Hello World!";
-        response.headers = "";
-        response.cookies = "";
-        return response;
-    }
+
+    function mutation(Request memory request, Response memory response)
+        public
+        virtual
+        override
+        payable
+        returns (Response memory) {
+            request.payload = "test";
+            response.status = "1";
+            response.body = "success";
+            return response;
+        }
 }
 ```
+
+
+### Test the HSTP;
+
+
+- [x] Query the service: `request: ["payload"], response: ["status", "body"]`
+- [x] Mutation the service: `request: ["payload"], response: ["status", "body"]`
+
 
 # License
 
