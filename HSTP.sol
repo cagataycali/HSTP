@@ -5,13 +5,6 @@ import "./Structs.sol";
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
 abstract contract HSTP {
-    string public name;
-
-    function register(string memory _name) public {
-        name = _name;
-    }
-
-    // Operation
     function query(Request memory request, Response memory response)
         public
         virtual
