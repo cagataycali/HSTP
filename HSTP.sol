@@ -7,7 +7,7 @@ import "./Structs.sol";
 abstract contract HSTP {
     string public name;
 
-    constructor(string memory _name) {
+    function register(string memory _name) public {
         name = _name;
     }
 

@@ -4,15 +4,17 @@ pragma solidity ^0.8.0;
 // Stateless Hyper Service Transfer Protocol for on-chain services.
 import "./HSTP.sol";
 
-contract Node is HSTP("addTodo") {
+contract Node is HSTP {
+   function setServiceName (string memory name) public {
+      register(name);
+   }
     function query(Request memory request, Response memory response)
         public
         override
         virtual
         returns (Response memory) {
-            request.payload = "1";
-            response.status = "1";
-            response.body = "success";
+            response.status = "success";
+            response.body = request.payload;
             return response;
         }
 
@@ -22,9 +24,8 @@ contract Node is HSTP("addTodo") {
         override
         payable
         returns (Response memory) {
-            request.payload = "test";
-            response.status = "1";
-            response.body = "success";
+            response.status = "success";
+            response.body = request.payload;
             return response;
         }
 }
