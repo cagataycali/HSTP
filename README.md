@@ -7,6 +7,10 @@ One contract could call another contract within the same chain.
 
 Thus the contracts can call each other freely, they can check their system status, and they can communicate with each other.
 
+### Awesome web3 services running top of HSTP
+
+[Full list here](https://github.com/cagataycali/awesome-web3-services)
+
 ### How to use the protocol
 
 The protocol itself is a [smart contract proposal](./HSTP.sol), you can set your Contract as HSTP contract.
