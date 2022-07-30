@@ -20,10 +20,10 @@ HSTP is a abstract class.
 - One HSTP node is a router and a service.
 
 ```solidity
-// SPDX-License-Identifier: GNU-3.0-or-later
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import "https://github.com/cagataycali/HSTP/HSTP.sol";
+import "https://github.com/cagataycali/HSTP/blob/main/HSTP.sol";
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
 contract Todo is HSTP("addTodo", Operation.Mutation) {
