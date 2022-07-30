@@ -1,22 +1,26 @@
 // SPDX-License-Identifier: GNU-3.0-or-later
 pragma solidity ^0.8.0;
 
-import "./Router.sol";
+import "./HSTP.sol";
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
-abstract contract HSTP is Router {
-    constructor(string memory name, Operation operation) {
-        register(name, this, operation);
+contract Todo is HSTP("addTodo", Operation.Mutation) {
+    function addTodo(string[] memory request) public payable returns(string[] memory) {
+        return request;
     }
+
+    // Override for HSTP.
     function query(string[] memory request)
         public
         view
         virtual
-        returns (Response memory);
+        override
+        returns (Response memory) {}
 
     function mutation(string[] memory request)
         public
         payable
         virtual
-        returns (Response memory);
+        override
+        returns (Response memory) {}
 }
