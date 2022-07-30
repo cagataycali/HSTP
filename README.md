@@ -20,36 +20,16 @@ HSTP is a abstract class.
 Implements: HTTP methods, HTTP headers, HTTP body, HTTP status code, HTTP status message, HTTP version.
 
 ```solidity
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-// Stateless Hyper Service Transfer Protocol for on-chain services.
 import "./HSTP.sol";
 
-contract Node is HSTP {
-   function setServiceName (string memory name) public {
-      register(name);
-   }
-    function query(Request memory request, Response memory response)
-        public
-        override
-        virtual
-        returns (Response memory) {
-            response.status = "success";
-            response.body = request.payload;
-            return response;
-        }
-
-    function mutation(Request memory request, Response memory response)
-        public
-        virtual
-        override
-        payable
-        returns (Response memory) {
-            response.status = "success";
-            response.body = request.payload;
-            return response;
-        }
+// Stateless Hyper Service Transfer Protocol for on-chain services.
+contract Todo is HSTP("addTodo", Operation.Mutation) {
+    function addTodo(string[] memory request) public payable returns(string[] memory) {
+        return request;
+    }
 }
 ```
 
