@@ -6,7 +6,8 @@ import "./Structs.sol";
 
 enum Operation {
     Query,
-    Mutation
+    Mutation,
+    Router
 }
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
@@ -16,6 +17,7 @@ contract Router {
     struct Registry {
         Operation operation;
         HSTP resolver;
+        Router router;
     }
 
     function query(string memory name, string[] memory payload) public view returns (Response memory) {
@@ -28,11 +30,17 @@ contract Router {
         return routes[name].resolver.mutation(payload);
     }
 
+    function router(string memory name, string[] memory payload) public payable returns (Response memory) {
+        require(routes[name].operation == Operation.Router, "method not allowed");
+        return routes[name].router.router(name, payload);
+    }
+
     function register(string memory name, HSTP node, Operation operation) public {
         require(operation == Operation.Query || operation == Operation.Mutation, "invalid operation");
         routes[name] = Registry({
             resolver: node,
-            operation: operation
+            operation: operation,
+            router: msg.sender == address(this) ? this : Router(msg.sender)
         });
     }
 }
