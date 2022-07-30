@@ -2,15 +2,19 @@
 pragma solidity ^0.8.0;
 
 import "./HSTP.sol";
-import "./Structs.sol";
 
 enum Operation {
     Query,
     Mutation
 }
 
+struct Response {
+    uint8 status;
+    string body;
+}
+
 // Stateless Hyper Service Transfer Protocol for on-chain services.
-contract Router {
+abstract contract Router {
     mapping(string => Registry) private routes;
 
     struct Registry {
