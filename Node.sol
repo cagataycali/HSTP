@@ -5,30 +5,33 @@ pragma solidity ^0.8.0;
 import "./HSTP.sol";
 
 contract Node is HSTP {
-   string[] public todos;
-    function query(Request memory request, Response memory response)
+    string[] public todos;
+
+    function query(string[] memory request)
         public
+        view
         override
         virtual
-        returns (Response memory) {
-            response.status = request.payload;
-            response.body = todos[0];
-            return response;
-        }
+        returns (Response memory)
+    {
+    }
 
-    function mutation(Request memory request, Response memory response)
+    function mutation(string[] memory request)
         public
         virtual
         override
         payable
-        returns (Response memory) {
-            response.status = "success";
-            this.addTodo(request.payload);
-            response.body = request.payload;
-            return response;
-        }
+        returns (Response memory)
+    {
+        Response memory response;
+        response.status = 200;
+        this.addTodo(request);
+        response.body = "";
+        return response;
+    }
 
-    function addTodo(string memory todo) public {
-        todos.push(todo);
+    function addTodo(string[] memory payload) public {
+        require(payload.length == 1, "length must be 1");
+        todos.push(payload[0]);
     }
 }

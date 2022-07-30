@@ -4,34 +4,35 @@ pragma solidity ^0.8.0;
 import "./HSTP.sol";
 import "./Structs.sol";
 
+enum Operation {
+    Query,
+    Mutation
+}
+
 // Stateless Hyper Service Transfer Protocol for on-chain services.
 contract Router {
-    // {name: {contract: 'address', operation: 'query'}}
+    mapping(string => Registry) private routes;
 
-    // addTodo: {contract: 0x171, operation: 'mutation'}
-    // getTodo: {contract: 0x171, operation: 'query'}
     struct Registry {
+        Operation operation;
         HSTP resolver;
-        uint256 operation;
-    }
-    mapping(string => Registry) public routes;
-    
-    function reply(string memory name, string memory payload) public payable virtual returns(Response memory) {
-        Request memory request;
-        request.payload = payload;
-        Response memory response;
-        if (routes[name].operation == 1) { // Query
-            response = routes[name].resolver.query(request, response);
-        } else {
-            response = routes[name].resolver.mutation(request, response);
-        }
-        return response;
     }
 
-    function register(string memory name, HSTP node, uint256 operation) public {
+    function query(string memory name, string[] memory payload) public view returns (Response memory) {
+        require(routes[name].operation == Operation.Query, "method not allowed");
+        return routes[name].resolver.query(payload);
+    }
+
+    function mutation(string memory name, string[] memory payload) public payable returns (Response memory) {
+        require(routes[name].operation == Operation.Mutation, "method not allowed");
+        return routes[name].resolver.mutation(payload);
+    }
+
+    function register(string memory name, HSTP node, Operation operation) public {
+        require(operation == Operation.Query || operation == Operation.Mutation, "invalid operation");
         routes[name] = Registry({
             resolver: node,
-            operation: operation 
+            operation: operation
         });
-    } 
+    }
 }
