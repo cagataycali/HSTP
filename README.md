@@ -54,12 +54,17 @@ contract Node is HSTP {
 ```
 
 
-### Test the HSTP;
+### Test the HSTP:
 
 
 - [x] Query the service: `request: ["payload"], response: ["status", "body"]`
 - [x] Mutation the service: `request: ["payload"], response: ["status", "body"]`
 
+
+### Contribute:
+
+- [ ] Fix the cross chain call reentrancy
+- [ ] Come up with cool services to bridge web2 ^ web3
 
 # License
 
