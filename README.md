@@ -20,15 +20,17 @@ HSTP is a abstract class.
 - One HSTP node is a router and a service.
 
 ```solidity
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: GNU-3.0-or-later
 pragma solidity ^0.8.0;
 
 import "https://github.com/cagataycali/HSTP/blob/main/HSTP.sol";
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
 contract Todo is HSTP("addTodo", Operation.Mutation) {
-    function addTodo(string[] memory request) public payable returns(string[] memory) {
-        return request;
+    // Entrypoint for the service.
+    function addTodo(string[] memory request) public payable returns(Response memory response) {
+        response.body = request[0];
+        return response;
     }
 
     // Override for HSTP.
@@ -44,7 +46,10 @@ contract Todo is HSTP("addTodo", Operation.Mutation) {
         payable
         virtual
         override
-        returns (Response memory) {}
+        returns (Response memory) {
+            // Override the mutations here.
+            return this.addTodo(request);
+        }
 }
 ```
 

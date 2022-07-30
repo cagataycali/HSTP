@@ -22,14 +22,15 @@ abstract contract Router {
         HSTP resolver;
     }
 
-    function reply(string memory name, string[] memory payload) public virtual payable returns(Response memory response) {
-        if (routes[name].operation == Operation.Query) {
-            response = this.query(name, payload);
-        } else if (routes[name].operation == Operation.Mutation) {
-            response = this.mutation(name, payload);
-        }
-        return response;
-    }
+    // CC: I do not think the reply function is going to be adopted from community.
+    // function reply(string memory name, string[] memory payload) public virtual payable returns(Response memory response) {
+    //     if (routes[name].operation == Operation.Query) {
+    //         response = this.query(name, payload);
+    //     } else if (routes[name].operation == Operation.Mutation) {
+    //         response = this.mutation(name, payload);
+    //     }
+    //     return response;
+    // }
 
     function query(string memory name, string[] memory payload) public view returns (Response memory) {
         require(routes[name].operation == Operation.Query, "method not allowed");
