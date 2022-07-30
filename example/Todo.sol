@@ -4,8 +4,8 @@ pragma solidity ^0.8.0;
 import "https://github.com/cagataycali/HSTP/blob/main/HSTP.sol";
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
-contract Todo is HSTP("addTodo", Operation.Mutation) {
-    // Entrypoint for the service.
+contract Todo is HSTP("addTodo") {
+    
     function addTodo(string[] memory request) public payable returns(Response memory response) {
         response.body = request[0];
         return response;
@@ -25,7 +25,6 @@ contract Todo is HSTP("addTodo", Operation.Mutation) {
         virtual
         override
         returns (Response memory) {
-            // Override the mutations here.
             return this.addTodo(request);
         }
 }

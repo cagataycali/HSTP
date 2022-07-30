@@ -5,8 +5,8 @@ import "./Router.sol";
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
 abstract contract HSTP is Router {
-    constructor(string memory name, Operation operation) {
-        register(name, this, operation);
+    constructor(string memory name) {
+        register(name, this);
     }
 
     function query(string[] memory request)
