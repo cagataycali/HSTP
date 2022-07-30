@@ -5,8 +5,9 @@ import "./HSTP.sol";
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
 contract Todo is HSTP("addTodo", Operation.Mutation) {
-    function addTodo(string[] memory request) public payable returns(string[] memory) {
-        return request;
+    function addTodo(string[] memory request) public payable returns(Response memory response) {
+        response.body = request[0];
+        return response;
     }
 
     // Override for HSTP.
@@ -22,5 +23,7 @@ contract Todo is HSTP("addTodo", Operation.Mutation) {
         payable
         virtual
         override
-        returns (Response memory) {}
+        returns (Response memory) {
+            return this.addTodo(request);
+        }
 }

@@ -8,6 +8,7 @@ abstract contract HSTP is Router {
     constructor(string memory name, Operation operation) {
         register(name, this, operation);
     }
+
     function query(string[] memory request)
         public
         view

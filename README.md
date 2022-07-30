@@ -48,7 +48,6 @@ contract Todo is HSTP("addTodo", Operation.Mutation) {
 }
 ```
 
-
 ### Test the HSTP:
 
 - [x] Query the service: `request: ["payload"], response: ["status", "body"]`
