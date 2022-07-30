@@ -17,49 +17,48 @@ The protocol itself is a [smart contract proposal](./HSTP.sol), you can set your
 
 HSTP is a abstract class.
 
-Implements: HTTP methods, HTTP headers, HTTP body, HTTP status code, HTTP status message, HTTP version.
+- One HSTP node is a router and a service.
 
 ```solidity
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: GNU-3.0-or-later
 pragma solidity ^0.8.0;
 
+import "https://github.com/cagataycali/HSTP/HSTP.sol";
+
 // Stateless Hyper Service Transfer Protocol for on-chain services.
-import "./HSTP.sol";
+contract Todo is HSTP("addTodo", Operation.Mutation) {
+    function addTodo(string[] memory request) public payable returns(string[] memory) {
+        return request;
+    }
 
-contract Node is HSTP {
-   function setServiceName (string memory name) public {
-      register(name);
-   }
-    function query(Request memory request, Response memory response)
+    // Override for HSTP.
+    function query(string[] memory request)
         public
-        override
-        virtual
-        returns (Response memory) {
-            response.status = "success";
-            response.body = request.payload;
-            return response;
-        }
-
-    function mutation(Request memory request, Response memory response)
-        public
+        view
         virtual
         override
+        returns (Response memory) {}
+
+    function mutation(string[] memory request)
+        public
         payable
-        returns (Response memory) {
-            response.status = "success";
-            response.body = request.payload;
-            return response;
-        }
+        virtual
+        override
+        returns (Response memory) {}
 }
 ```
 
 
-### Test the HSTP;
-
+### Test the HSTP:
 
 - [x] Query the service: `request: ["payload"], response: ["status", "body"]`
 - [x] Mutation the service: `request: ["payload"], response: ["status", "body"]`
 
+
+### Contribute:
+
+- [ ] Write a todo application with HSTP, deploy with remix and test it.
+- [ ] Write a paywall on top of https://flex.link so the router could be payable.
 
 # License
 
