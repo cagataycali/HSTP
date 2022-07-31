@@ -1,0 +1,27 @@
+{
+  "name": "hstp",
+  "version": "1.0.0",
+  "description": "Hyper Service Transfer Protocol on EVM",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cagataycali/hstp.git"
+  },
+  "keywords": [
+    "evm",
+    "solidity",
+    "protocol"
+  ],
+  "author": "Cagatay Cali",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/cagataycali/hstp/issues"
+  },
+  "homepage": "https://github.com/cagataycali/hstp#readme"
+}

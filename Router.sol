@@ -21,7 +21,7 @@ abstract contract Router {
         HSTP resolver;
     }
 
-    function reply(string memory name, Operation _operation, string[] memory payload) public virtual payable returns(Response memory response) {
+    function reply(string memory name, Operation _operation, bytes memory payload) public virtual payable returns(Response memory response) {
         if (_operation == Operation.Query) {
             response = this.query(name, payload);
         } else if (_operation == Operation.Mutation) {
@@ -30,11 +30,11 @@ abstract contract Router {
         return response;
     }
 
-    function query(string memory name, string[] memory payload) public view returns (Response memory) {
+    function query(string memory name, bytes memory payload) public view returns (Response memory) {
         return routes[name].resolver.query(payload);
     }
 
-    function mutation(string memory name, string[] memory payload) public payable returns (Response memory) {
+    function mutation(string memory name, bytes memory payload) public payable returns (Response memory) {
         return routes[name].resolver.mutation(payload);
     }
 

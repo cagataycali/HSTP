@@ -9,13 +9,13 @@ abstract contract HSTP is Router {
         register(name, this);
     }
 
-    function query(string[] memory request)
+    function query(bytes memory payload)
         public
         view
         virtual
         returns (Response memory);
 
-    function mutation(string[] memory request)
+    function mutation(bytes memory payload)
         public
         payable
         virtual
