@@ -64,9 +64,29 @@ contract Todo is HSTP("Todo") {
 
 ### Contribute:
 
+#### Developer level contribution
+
 - [ ] Write a todo application with HSTP, deploy with remix and test it.
 - [ ] Draw example architecture of HSTP (serviceless architecture).
-- [ ] Write a paywall on top of https://flex.link so the router could be payable.
+
+#### Core level contribution
+
+**Todo:**
+
+- [ ] ETA: 1 week - Implement TCP server uses libp2p. That resolves problem of cross network communication. (web2 -> web3 || web3 -> web3 || web3 -> web2 || web2 -> web2)
+    - libp2p need to fetch the target resolver from registry (EVM-based blockchain).
+- [ ] ETA: 5 days - Implement HTTP server resolves HSTP interface (/GET query, /POST mutation)
+
+**Done:**
+
+- [x] Implement HTTP client resolves HSTP interface (/GET query, /POST mutation)
+    - [x] fetch('hstp://flex.link/service/query') // This is supported now.
+- [x] Implement HSTP protocol for EVM-based blockchains.
+    - [x] HSTP protocol is available for EVM-based blockchains now.
+### Inspirations:
+
+- [x] Solidity level abstraction for Hyper Service Transfer Protocol ([diamond protocol eip-2535](https://eips.ethereum.org/EIPS/eip-2535))
+- [x] TCP level abstraction for Hyper Service Transfer Protocol ([libp2p](https://libp2p.io/))
 
 # License
 

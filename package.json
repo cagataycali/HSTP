@@ -7,7 +7,7 @@
     "example": "example"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/cagataycali/hstp/issues"
   },
-  "homepage": "https://github.com/cagataycali/hstp#readme"
+  "homepage": "https://github.com/cagataycali/hstp#readme",
+  "dependencies": {
+    "node-tcp-proxy": "0.0.27"
+  }
 }
