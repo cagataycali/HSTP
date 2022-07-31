@@ -1,6 +1,6 @@
 {
   "name": "hstp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hyper Service Transfer Protocol on EVM",
   "main": "index.js",
   "directories": {
