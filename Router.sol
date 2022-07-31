@@ -2,6 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "./HSTP.sol";
+import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 
 enum Operation {
     Query,
@@ -14,7 +15,7 @@ struct Response {
 }
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
-abstract contract Router {
+abstract contract Router is ERC165 {
     mapping(string => Registry) public routes;
 
     struct Registry {
@@ -42,5 +43,9 @@ abstract contract Router {
         routes[name] = Registry({
             resolver: node
         });
+    }
+
+    function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {
+        return interfaceId == type(HSTP).interfaceId;
     }
 }
