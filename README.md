@@ -26,7 +26,7 @@ pragma solidity ^0.8.0;
 import "https://github.com/cagataycali/HSTP/blob/main/HSTP.sol";
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
-contract Todo is HSTP("addTodo") {
+contract Todo is HSTP("Todo") {
     function addTodo(string[] memory request) public payable returns(Response memory response) {
         response.body = request[0];
         return response;
@@ -60,6 +60,7 @@ contract Todo is HSTP("addTodo") {
 ### Contribute:
 
 - [ ] Write a todo application with HSTP, deploy with remix and test it.
+- [ ] Draw example architecture of HSTP (serviceless architecture).
 - [ ] Write a paywall on top of https://flex.link so the router could be payable.
 
 # License

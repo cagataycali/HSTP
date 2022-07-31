@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "https://github.com/cagataycali/HSTP/blob/main/HSTP.sol";
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
-contract Todo is HSTP("addTodo") {
+contract Todo is HSTP("Todo") {
     
     function addTodo(string[] memory request) public payable returns(Response memory response) {
         response.body = request[0];
