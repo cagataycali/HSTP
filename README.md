@@ -62,12 +62,6 @@ contract Todo is HSTP("Todo") {
 }
 ```
 
-### Test the HSTP:
-
-- [x] Query the service: `request: ["payload"], response: ["status", "body"]`
-- [x] Mutation the service: `request: ["payload"], response: ["status", "body"]`
-
-
 ### Contribute:
 
 - [ ] Write a todo application with HSTP, deploy with remix and test it.
