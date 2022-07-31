@@ -15,7 +15,7 @@ struct Response {
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
 abstract contract Router {
-    mapping(string => Registry) private routes;
+    mapping(string => Registry) public routes;
 
     struct Registry {
         HSTP resolver;
