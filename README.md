@@ -1,13 +1,13 @@
 # Hyper Service Transfer Protocol on EVM
 
-The protocol aims to develop a contract level abstraction for the Hyper Service Transfer Protocol.
+The protocol aims to develop a application layer abstraction for the Hyper Service Transfer Protocol.
 
 The protocol will implement way to transfer services between two parties.
 One contract could call another contract within the same chain.
 
 Thus the contracts can call each other freely, they can check their system status, and they can communicate with each other.
 
-### Awesome web3 services running top of HSTP
+### Awesome web services running top of HSTP
 
 [Full list here](https://github.com/cagataycali/awesome-web3-services)
 
@@ -23,6 +23,9 @@ The protocol itself is a [smart contract proposal](./HSTP.sol), you can set your
 HSTP is a abstract class.
 
 - One HSTP node is a router and a service.
+- Implements [.query, .mutation, .registry].
+
+Example solidity HSTP node:
 
 ```solidity
 // SPDX-License-Identifier: GNU-3.0-or-later
@@ -85,9 +88,14 @@ contract Todo is HSTP("Todo") {
     - [x] HSTP protocol is available for EVM-based blockchains now.
 ### Inspirations:
 
-- [x] Solidity level abstraction for Hyper Service Transfer Protocol ([diamond protocol eip-2535](https://eips.ethereum.org/EIPS/eip-2535))
+- [x] Mindset [Humanode](https://humanode.io/)
+  - *Why it's not a Humanode:* They are so high level for this abstraction, yet but the correct path is HSTP.
+- [x] Solidity level abstraction for Hyper Service Transfer Protocol ([Diamond protocol eip-2535](https://eips.ethereum.org/EIPS/eip-2535))
+  - [x] *Why it's not a diamond:* https://blog.trailofbits.com/2020/10/30/good-idea-bad-design-how-the-diamond-standard-falls-short/
 - [x] TCP level abstraction for Hyper Service Transfer Protocol ([libp2p](https://libp2p.io/))
-
+ - [x] *Why it's not a libp2p:* There's no application representation layer. It's just a network layer.
+- [x] TCP layer abstraction approach: https://datatracker.ietf.org/doc/html/rfc1347
+  - [x] *Why it's not a RFC1347:* It's not a standard, it's just a proposal. Application representation layer is missing.
 # License
 
 GNU GENERAL PUBLIC LICENSE V3
