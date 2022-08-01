@@ -1,4 +1,4 @@
-# Hyper Service Transfer Protocol on EVM
+# Hyper Service Transfer Protocol on Computer Networks
 
 The protocol aims to develop a application layer abstraction for the Hyper Service Transfer Protocol.
 
