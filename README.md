@@ -6,6 +6,11 @@ The protocol will implement way to transfer services between two parties.
 One contract could call another contract within the same chain.
 
 Thus the contracts can call each other freely, they can check their system status, and they can communicate with each other.
+## How it works
+
+The protocol is based on the Hyper Service Transfer Protocol. The protocol is a protocol for transferring services between two parties.
+
+Means, one country can talk in X language, another one is talking in Y language. The protocol will translate the language from X to Y and Y to X. Thus both parties can talk to each other without barrier. This is a abstraction layer of communication. We have the same abstraction layer on HTTP now, called load balancers and for use case can be called proxy. The proxy can be used to transfer the HTTP request to another HTTP server.
 
 ### Awesome web services running top of HSTP
 
@@ -88,6 +93,8 @@ contract Todo is HSTP("Todo") {
     - [x] HSTP protocol is available for EVM-based blockchains now.
 ### Inspirations:
 
+- [x] Applicability of the Babel Routing Protocol https://datatracker.ietf.org/doc/rfc8965/
+- [x] EIP: The Extended Internet Protocol A Framework for Maintaining Backward Compatibility - https://datatracker.ietf.org/doc/html/rfc1385
 - [x] Mindset [Humanode](https://humanode.io/)
   - *Why it's not a Humanode:* They are so high level for this abstraction, yet but the correct path is HSTP.
 - [x] Solidity level abstraction for Hyper Service Transfer Protocol ([Diamond protocol eip-2535](https://eips.ethereum.org/EIPS/eip-2535))
