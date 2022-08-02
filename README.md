@@ -30,7 +30,7 @@ Thus the nodes can call each other freely, they can check their system status, a
 ### What kind of abstraction layer for networks?
 
 HSTP is already implemented on language level, by people for people.
-English is mostly adopted language around the Earth. JavaScript could be known also mostly adopted language for browser environments. Solidity is for EVM-based chains, libp2p for TCP based networks, etc.
+English is mostly adopted language around the Earth. JavaScript could be known also mostly adopted language for browser environments. Solidity is for EVM-based chains, hyperbees for TCP based networks, etc.
 
 HSTP interface shall be applied between any HSTP connected devices/networks.
 
@@ -82,8 +82,8 @@ The registry has two parts of the interface:
 - **Resolve** method, which is used to resolve a node in the network.
 
 Registry implementation needs two HSTP node,
-1) Modular network - libp2p websocket holepunch
- - Modular network will resolve the registry of RPC, TCP, HTTP, HSTP etc.
+1) Hyperbees
+ - Heterogen networks will resolve the registry of RPC, TCP, HTTP, HSTP etc.
 2) Registry.sol on any EVM based chain. (Ethereum, Binance Smart Chain, Polygon, etc.)
  - Registry.sol will resolve the registry of HSTP nodes. That can be relayed over another networks.
 
@@ -310,8 +310,8 @@ contract Todo is HSTP("Todo") {
 
 #### Core level contribution
 
-- [ ] Implement TCP layer HSTP interface on libp2p, [Universe]
-    - libp2p and HSTP will be the first implementation of HSTP.
+- [ ] Implement TCP layer HSTP interface on hyperbees, [Universe]
+    - hyperbees and HSTP will be the first implementation of HSTP.
     - That will covers the universe phrase of networks. That will bring us full decentralized web on HSTP.
 - [x] Implement RPC layer HSTP interface on Solidity [Web3]
     - [Solidity - HSTP Node example](./examples/Chain/Todo/Todo.sol)
@@ -329,6 +329,7 @@ contract Todo is HSTP("Todo") {
 - [x] Solidity level abstraction for Hyper Service Transfer Protocol ([Diamond protocol eip-2535](https://eips.ethereum.org/EIPS/eip-2535))
   - [x] *Why it's not a diamond:* https://blog.trailofbits.com/2020/10/30/good-idea-bad-design-how-the-diamond-standard-falls-short/
 - [x] TCP level abstraction for Hyper Service Transfer Protocol ([libp2p](https://libp2p.io/))
+    - Application representation layer is missing.
  - [x] *Why it's not a libp2p:* There's no application representation layer. It's just a network layer.
 - [x] TCP layer abstraction approach: https://datatracker.ietf.org/doc/html/rfc1347
   - [x] *Why it's not a RFC1347:* It's not a standard, it's just a proposal. Application representation layer is missing.
