@@ -4,6 +4,8 @@ pragma solidity ^0.8.0;
 import "./Router.sol";
 
 // Stateless Hyper Service Transfer Protocol for on-chain services.
+// Will implement: EIP-4337 when it's on final stage.
+// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-4337.md
 abstract contract HSTP is Router {
     constructor(string memory name) {
         register(name, this);

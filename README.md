@@ -6,9 +6,10 @@ The protocol will implement way to transfer services between two parties.
 One contract could call another contract within the same chain.
 
 Thus the contracts can call each other freely, they can check their system status, and they can communicate with each other.
-## How it works
+## Abstract
 
-The protocol is based on the Hyper Service Transfer Protocol. The protocol is a protocol for transferring services between two parties.
+The protocol will implement way to transfer services between two parties.
+- One contract could call another contract within the same chain.
 
 Means, one country can talk in X language, another one is talking in Y language. The protocol will translate the language from X to Y and Y to X. Thus both parties can talk to each other without barrier. This is a abstraction layer of communication. We have the same abstraction layer on HTTP now, called load balancers and for use case can be called proxy. The proxy can be used to transfer the HTTP request to another HTTP server.
 

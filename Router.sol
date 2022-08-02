@@ -9,16 +9,6 @@ import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 // Sonra ilgili blockchain ve node'a istek atiyor.
 // Tum protocol HSTP.
 
-// frontend req.
-
-// Registry
-struct World {
-    string name;
-    uint256 networkType; // 0 -> RPC, 1 -> HTTP, 2
-    address node;
-    address router;
-}
-
 enum Operation {
     Query,
     Mutation
@@ -29,24 +19,29 @@ struct Response {
     string body;
 }
 
+struct Registry {
+    HSTP resolver;
+}
+
 // Stateless Hyper Service Transfer Protocol for on-chain services.
 abstract contract Router is ERC165 {
     event Log(address indexed sender, Operation operation, bytes payload);
     event Register(address indexed sender, Registry registry);
     mapping(string => Registry) public routes;
 
-    struct Registry {
-        HSTP resolver;
-    }
-
     function reply(string memory name, Operation _operation, bytes memory payload) public virtual payable returns(Response memory response) {
         emit Log(msg.sender, _operation, payload);
-        if (_operation == Operation.Query) {
-            response = this.query(name, payload);
-        } else if (_operation == Operation.Mutation) {
-            response = this.mutation(name, payload);
+        // Traverse the tree.
+        // If the route is registered on me, then I will handle it.
+        // If I do not have the route on this node, ask for parent.
+        if (routes[name]) {
+            if (_operation == Operation.Query) {
+                return this.query(payload);
+            } else if (_operation == Operation.Mutation) {
+                return this.mutation(payload);
+            }
         }
-        return response;
+        return super.reply(name, _operation, payload);
     }
 
     function query(string memory name, bytes memory payload) public view returns (Response memory) {

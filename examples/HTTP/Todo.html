@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@alch/alchemy-web3@latest/dist/alchemyWeb3.min.js"></script>
+    <script src="./HSTP.js"></script>
+    <title>HSTP NODE</title>
+</head>
+<body>
+    <h1>Todo service</h1>
+    
+    <input type="text" value="" id="todoInput">
+    <input type="button" id="submit" onclick="saveTodo()">
+
+    <script>
+        // This is a HSTP node that can be used to interact with the HSTP contract
+        // It is a simple todo list that can be used to demonstrate the HSTP in different layer.
+        // It is not meant to be used in production
+
+        // TODO SERVER
+        class Todo extends HSTP {
+            constructor(name, superNode, routerAddress) {
+                super(name, superNode, routerAddress);
+            }
+            // In memory data storage
+            todos = [];
+            query(payload) {
+                // You can call web3 from here by
+                // super.web3
+                // You can call web2 from here by
+                // fetch('http://...');
+                return todos[payload];
+            }
+            // payload is text
+            mutation(payload) {
+                // You can call web3 from here by
+                // super.web3
+                // You can call web2 from here by
+                // fetch('http://...');
+                // super.web3.eth.sendTransaction({to: '0x...', value: 1000000000000000000});
+                // You're calling the router to resolve the requests.
+                super.contract.methods.query(payload).send({from: super.account});
+                todos.push(payload)
+                return todos;
+            }
+        }
+        const serviceName = "Todo";
+        const superNode = 'wss://eth-mainnet.ws.alchemyapi.io/ws/<api-key>';
+        // Your deployed global registry contract address,
+        // or the address of the global registry contract on the network you're using.
+        const yourRouter = '0x<address>';
+        // Gather this instance from browser's wallet (metamask walletconnet etc.)
+        const yourAddress = '0x<address>';
+        const todoService = new Todo(serviceName, superNode, yourRouter, yourAddress);
+
+        // TODO CLIENT
+        function saveTodo() {
+            todoService.mutation(document.getElementById('input').value);
+        }
+
+        // You can add another service under the same router from client :)
+        const anotherService = new Todo('AnotherService', superNode, yourRouter, yourAddress);
+        todoService.register('AnotherService', anotherService);
+        // Thus you can call this;
+        anotherService.mutation('Hello world');
+        // Or this,
+        // Operation { Query: 0, Mutation: 1 }
+        todoService.reply('AnotherService' /*Service name*/, 1 /* Mutation */, 'Hello world');
+        // Todo service can reply to another service's mutation request. Because the todo service is router.
+    </script>
+</body>
+</html>
