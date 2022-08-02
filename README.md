@@ -5,6 +5,7 @@
 </p>
 
 The protocol aims to develop a application layer abstraction for the Hyper Service Transfer Protocol.
+> HSTP is a recursion as nature of HSTP. This protocol implements itself as a interface. On every internet connected device, there is a HSTP instance. That's why the adoption is not needed. HSTP already running top of the internet. We just now achieved to explain the protocol over protocols on heterogeneous networks. That's why do not compare with web2, web3 or vice versa.
 
 
 ## Abstract
