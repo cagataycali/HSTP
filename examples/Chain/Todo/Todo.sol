@@ -6,11 +6,11 @@ import "hstp/HSTP.sol";
 // Stateless Hyper Service Transfer Protocol for on-chain services.
 contract Todo is HSTP("Todo") {
 
-    struct TodoRequest {
+    struct ITodo {
         string todo;
     }
     
-    function addTodo(TodoRequest memory request) public payable returns(Response memory response) {
+    function addTodo(ITodo memory request) public payable returns(Response memory response) {
         response.body = request.todo;
         return response;
     }
@@ -29,7 +29,7 @@ contract Todo is HSTP("Todo") {
         virtual
         override
         returns (Response memory) {
-            (TodoRequest memory todoRequest) = abi.decode(payload, (TodoRequest));
-            return this.addTodo(todoRequest);
+            (ITodo memory request) = abi.decode(payload, (ITodo));
+            return this.addTodo(request);
         }
 }

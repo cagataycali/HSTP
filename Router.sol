@@ -4,18 +4,13 @@ pragma solidity ^0.8.0;
 import "./HSTP.sol";
 import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 
-// Polygon'da deploy olmus bir node
-// AWS tcp request'ini alip ustune polygon'a registry soruyor.
-// Sonra ilgili blockchain ve node'a istek atiyor.
-// Tum protocol HSTP.
-
 enum Operation {
     Query,
     Mutation
 }
 
 struct Response {
-    uint8 status;
+    uint256 status;
     string body;
 }
 
