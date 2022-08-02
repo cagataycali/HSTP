@@ -1,5 +1,9 @@
 # Hyper Service Transfer Protocol on Computer Networks
 
+<p align="center">
+  <img src="https://github.com/cagataycali/HSTP/blob/main/assets/HSTP-center.png?raw=true" alt="HSTP - Hyper Service Transfer Protocol on Computer Networks"/>
+</p>
+
 The protocol aims to develop a application layer abstraction for the Hyper Service Transfer Protocol.
 
 
