@@ -1,4 +1,4 @@
-# Hyper Service Transfer Protocol on Computer Networks
+# Hyper Service Transfer Protocol on Networks
 
 <p align="center">
   <img src="https://github.com/cagataycali/HSTP/blob/main/assets/HSTP-center.jpg?raw=true" alt="HSTP - Hyper Service Transfer Protocol on Computer Networks"/>
