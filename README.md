@@ -16,7 +16,16 @@ HSTP interface enforces to implement a set of methods to be able to communicate 
 
 ### Protocol 4 Babies:
 
-As story:
+Story time!
+
+- Baby crying! 👶
+- Needs milk! 🍼
+- Mommy has a problem.
+- Father has a problem.
+- Let's fix this!
+
+**A small overview**
+
 Think about, we're in the situation of one mother and one father lives a happy life.
 They had a baby!
 Suddenly, the mother needed to drink pills regularly to cure a disase. The pill is a poison for the baby. The baby is crying and the mother calls father because he is the only trusted person to help the baby. But the father sometime can not stay at home, he needs to do something to feed the baby. Father heard one milkman has fresh and high quality milks for low price. Father decides to try to talk the milkman, milkman deliver the milk to the father, father carry the milk to the mother. Mother give the milk to the baby. Baby is happy now and the baby sleeps, mother see the baby is happy. 
@@ -24,7 +33,7 @@ Suddenly, the mother needed to drink pills regularly to cure a disase. The pill 
 The family never buy the milk from outside, this is the first time they buy milk for the baby:
 *(Mom do not know the number of milkman, milkman do not know the home address)*
 
-
+```text
 As steps:
 
 0)  - Baby wants to drink milk.
@@ -58,8 +67,10 @@ Oops, tomorrow baby wakes up and cries again,
 9) - Baby sleeps.
 10) - Mother see the baby is happy and sleeps.
 11) - Mother is happy and the mother trust the milkman now.
+```
 
-## as a protocol: this document you're reading is a manifest for the internet users.
+*this document you're reading is a manifest for the internet people to connecting the other people by trusting the service serve the client and the trust only can be maintainable by providing good services.*
+*trust is the key, but not enough for survive. the service has to be reliable, consistent, cheap. unless the people will decide to not ask from you again.*
 
 **So, it's easy right? It's so simple to understand, who are those people in the story?**
 
