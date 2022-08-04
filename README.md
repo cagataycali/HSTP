@@ -14,7 +14,7 @@ HSTP is a application representation interface for [heterogeneous networks](http
 
 HSTP interface enforces to implement a set of methods to be able to communicate with other nodes in the network. Thus serves, clients, and other nodes can communicate with each other with [trust based, end to end encrypted way]('./assets/schema.jpg'). By the time the node resolution is based on [fastest path resolution algorithm I wrote](./assets/dns-resolution.jpg).
 
-### Protocol 4 Babies:
+### Protocol 4 Babies  🍼 <- 👀 <- 👶:
 
 Story time!
 
