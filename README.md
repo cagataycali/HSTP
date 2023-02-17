@@ -420,6 +420,12 @@ GNU GENERAL PUBLIC LICENSE V3
 - [Cagatay Cali](https://twitter.com/cagataycali)
 - [Buğra Yıldız](https://twitter.com/mby)
 - [Erdal Çay](https://twitter.com/erdalcay)
+
+
+# Sponsors
+
+- [eunomia.team](https://eunomia.team/)
+
 # Author
 
 [Cagatay Cali](https://twitter.com/cagataycali)
