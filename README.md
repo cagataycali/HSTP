@@ -1,7 +1,7 @@
 # Hyper Service Transfer Protocol on Networks
 
 <p align="center">
-  <img src="https://github.com/cagataycali/HSTP/blob/main/assets/HSTP-center.jpg?raw=true" alt="HSTP - Hyper Service Transfer Protocol on Computer Networks"/>
+  <img src="https://github.com/cagataycali/HSTP/blob/main/assets/logo.png?raw=true" alt="HSTP - Hyper Service Transfer Protocol on Computer Networks"/>
 </p>
 
 The protocol aims to develop a application layer abstraction for the Hyper Service Transfer Protocol.
@@ -12,7 +12,7 @@ The protocol aims to develop a application layer abstraction for the Hyper Servi
 
 HSTP is a application representation interface for [heterogeneous networks](https://en.wikipedia.org/wiki/Heterogeneous_network).
 
-HSTP interface enforces to implement a set of methods to be able to communicate with other nodes in the network. Thus serves, clients, and other nodes can communicate with each other with [trust based, end to end encrypted way]('./assets/schema.jpg'). By the time the node resolution is based on [fastest path resolution algorithm I wrote](./assets/dns-resolution.jpg).
+HSTP interface enforces to implement a set of methods to be able to communicate with other nodes in the network. Thus serves, clients, and other nodes can communicate with each other with [trust based, end to end encrypted way]('https://github.com/cagataycali/HSTP/blob/main/assets/schema.jpg'). By the time the node resolution is based on [fastest path resolution algorithm I wrote](https://github.com/cagataycali/HSTP/blob/main/assets/dns-resolution.jpg).
 
 ### Protocol 4 Babies  🍼 <- 👀 <- 👶:
 
