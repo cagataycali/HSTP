@@ -424,7 +424,7 @@ GNU GENERAL PUBLIC LICENSE V3
 
 # Sponsors
 
-- [eunomia.team](https://eunomia.team/)
+- [eunomia.team - logo & design](https://eunomia.team/)
 
 # Author
 
