@@ -1,0 +1,24 @@
+{
+  "name": "hstp",
+  "version": "1.0.0",
+  "description": "Hyper Simple Text Protocol designed for text to action.",
+  "main": "index.js",
+  "bin": {
+    "hstp": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "openai": "^4.28.0",
+    "uuid": "^9.0.1",
+    "ws": "^8.16.0"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.8",
+    "utf-8-validate": "^6.0.3"
+  }
+}

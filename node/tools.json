@@ -1,0 +1,129 @@
+[
+    {
+        "name": "create_ai",
+        "description": "Craft a brand new AI entity",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the AI"
+                },
+                "systemPrompt": {
+                    "type": "string",
+                    "description": "The system prompt for the AI, required"
+                },
+                "systemKnowledge": {
+                    "type": "string",
+                    "description": "The system knowledge for the AI"
+                },
+                "data": {
+                    "type": "string",
+                    "description": "Define the data of the AI, optional"
+                },
+                "worker": {
+                    "type": "string",
+                    "description": "Tiny Worker - OpenAPI.json remote address like https://plugin.tiny.technology/openapi.json"
+                },
+                "hook": {
+                    "type": "string",
+                    "description": "Tiny AI webhook, optional, if you want to receive the messages from the tiny ai"
+                }
+            },
+            "required": [
+                "name",
+                "systemPrompt",
+                "systemKnowledge"
+            ]
+        }
+    },
+    {
+        "name": "modify_ai",
+        "description": "Refine the essence of an existing tiny AI",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the AI"
+                },
+                "systemPrompt": {
+                    "type": "string",
+                    "description": "The system prompt for the AI"
+                },
+                "systemKnowledge": {
+                    "type": "string",
+                    "description": "The system knowledge for the AI"
+                },
+                "data": {
+                    "type": "string",
+                    "description": "The data for the AI, can be a list of products, services, or anything you want to share with your customers"
+                },
+                "worker": {
+                    "type": "string",
+                    "description": "Tiny Worker - OpenAPI.json remote address like https://plugin.tiny.technology/openapi.json"
+                },
+                "hook": {
+                    "type": "string",
+                    "description": "Tiny AI webhook, optional, if you want to receive the messages from the tiny ai"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The key of the AI"
+                }
+            },
+            "required": [
+                "name",
+                "systemPrompt",
+                "systemKnowledge",
+                "key"
+            ]
+        }
+    },
+    {
+        "name": "send_message",
+        "description": "Send a message to an ai owner from another tiny ai owner",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "description": "Your tiny AI name, optional"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Message to send to all subscribers and post to the tiny page, required"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the tiny AI, target required"
+                }
+            },
+            "required": [
+                "name",
+                "message"
+            ]
+        }
+    },
+    {
+        "name": "reset",
+        "description": "Reset the AI",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the AI"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "The email of the AI owner"
+                }
+            },
+            "required": [
+                "name",
+                "email"
+            ]
+        }
+    }
+]

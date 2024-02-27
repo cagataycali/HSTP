@@ -1,10 +1,10 @@
 {
   "name": "hstp",
-  "version": "1.0.3",
-  "description": "Hyper Service Transfer Protocol on EVM",
+  "version": "1.1.0",
+  "description": "Hyper Simple Text Protocol designed for text to action.",
   "main": "index.js",
-  "directories": {
-    "example": "example"
+  "bin": {
+    "hstp": "./node/index.js"
   },
   "scripts": {
     "start": "node index.js"
@@ -14,9 +14,11 @@
     "url": "git+https://github.com/cagataycali/hstp.git"
   },
   "keywords": [
-    "evm",
-    "solidity",
-    "protocol"
+    "hstp",
+    "text to action protocol",
+    "hyper simple text protocol",
+    "text to action ai",
+    "collective artificial intelligence network"
   ],
   "author": "Cagatay Cali",
   "license": "GPL-3.0-or-later",
@@ -25,6 +27,13 @@
   },
   "homepage": "https://github.com/cagataycali/hstp#readme",
   "dependencies": {
-    "node-tcp-proxy": "0.0.27"
+    "dotenv": "^16.4.5",
+    "openai": "^4.28.0",
+    "uuid": "^9.0.1",
+    "ws": "^8.16.0"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.8",
+    "utf-8-validate": "^6.0.3"
   }
 }
