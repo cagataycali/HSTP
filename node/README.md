@@ -103,7 +103,7 @@ That's it! Your function is now part of the HSTP network. You can now use it to 
 
 # License
 
-GNU General Public License v3.0
+MIT - see [LICENSE](./LICENSE) for details.
 
 # Contributing
 
