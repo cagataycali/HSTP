@@ -1,6 +1,7 @@
 // This is the main file for the AI assistant. It runs the conversation and handles function calls.
 // It is a separate file to make it easier to test and maintain the conversation logic.
 // Set the environment variables OPENAI_API_KEY and TINY_API_KEY if you want.
+// The key is invalid, replace with your own key.
 process.env.OPENAI_API_KEY = process.env.OPENAI_API_KEY || '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'; // If you are lazy, replace when you have your own API key.
 process.env.TINY_HOST = process.env.TINY_HOST || 'https://plugin.tiny.technology'; // If you are not using the default host, replace with your own host.
 process.env.TINY_API_KEY = process.env.TINY_API_KEY || 'todo:replace'; // Name is your AI name, key is your API key. Replace with your own key.
